@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_delivery/Screens/Home/home_screen.dart';
+import 'package:food_delivery/Screens/DashBoard/home_screen.dart';
 import 'package:food_delivery/Screens/SignUp/signup_screen.dart';
 
 import 'package:food_delivery/constants.dart';

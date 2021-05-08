@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/Screens/DashBoard/home_screen.dart';
 import 'package:food_delivery/Screens/Welcome/welcome_screen.dart';
 
 void main() {
@@ -10,10 +11,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(),
-      home: WelcomeScreen()
-    );
+        
+        title: 'Flutter Demo', theme: ThemeData(), 
+        home: HomeScreen()
+        );
   }
 }
-
