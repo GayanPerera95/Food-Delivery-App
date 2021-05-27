@@ -30,6 +30,9 @@ flutter:
     - assets/images/bugger.png
     - assets/images/pizza.jpg
     - assets/images/breakfast.jpg
+    - assets/images/chicken.jpg
+    - assets/images/rice.jpg
+    - assets/images/salad.jpg
 
 
  

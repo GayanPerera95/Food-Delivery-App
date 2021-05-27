@@ -4,12 +4,12 @@ import 'package:food_delivery/Screens/DashBoard/account.dart';
 import 'package:food_delivery/Screens/DashBoard/cart.dart';
 import 'package:food_delivery/Screens/DashBoard/chat.dart';
 import 'package:food_delivery/Screens/DashBoard/feed.dart';
+import 'package:food_delivery/Screens/Data/food_data.dart';
 import 'package:food_delivery/Screens/Widgets/bought_foods.dart';
 import 'package:food_delivery/Screens/Widgets/food_category.dart';
 import 'package:food_delivery/Screens/Widgets/home_top_info.dart';
 import 'package:food_delivery/Screens/Widgets/search_feild.dart';
 import 'package:food_delivery/constants.dart';
-
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -17,7 +17,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  
+  List<Food> _foods = foods;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,33 +28,37 @@ class _HomeScreenState extends State<HomeScreen> {
           HomeTopInfo(),
           FoodCategory(),
           SearchField(),
-          SizedBox(height: 20.0,),
+          SizedBox(
+            height: 20.0,
+          ),
           Row(
-            mainAxisAlignment:  MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              Text("Frequently Bought Foods",
-               style: TextStyle(
-                fontSize: 18.0,
-                fontWeight: FontWeight.bold,
-                 ),
+              Text(
+                "Frequently Bought Foods",
+                style: TextStyle(
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
               GestureDetector(
-                onTap: (){},
-            
-              child:Text("View All",
-               style: TextStyle(
-                 fontSize: 18.0,
-                 fontWeight: FontWeight.bold,
-                 color: kPromaryColour 
-               ),
-              ),
+                onTap: () {},
+                child: Text(
+                  "View All",
+                  style: TextStyle(
+                      fontSize: 18.0,
+                      fontWeight: FontWeight.bold,
+                      color: kPromaryColour),
+                ),
               )
             ],
           ),
-          SizedBox(height: 20.0,),
-          Container(
-            child: BoughtFoods(),
-          )
+          SizedBox(
+            height: 20.0,
+          ),
+          Column(
+            children: _foods.map(_buildFoodItems).toList(),
+          ),
         ],
       ),
 
@@ -97,6 +102,22 @@ class _HomeScreenState extends State<HomeScreen> {
         // animationCurve: Curves.easeInBack,
       ),
       // body: screen[selectedIndex]
+    );
+  }
+
+  Widget _buildFoodItems(Food food) {
+    return Container(
+      margin: EdgeInsets.only(bottom: 20.0),
+      child: BoughtFoods(
+        id: food.id,
+        name : food.name,
+        imagePath: food.imagePath,
+        category: food.category,
+        price: food.price,
+        discount: food.discount,
+        ratings: food.ratings
+      ),
+       
     );
   }
 }
