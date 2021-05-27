@@ -4,9 +4,12 @@ import 'package:food_delivery/Screens/DashBoard/account.dart';
 import 'package:food_delivery/Screens/DashBoard/cart.dart';
 import 'package:food_delivery/Screens/DashBoard/chat.dart';
 import 'package:food_delivery/Screens/DashBoard/feed.dart';
+import 'package:food_delivery/Screens/Widgets/bought_foods.dart';
 import 'package:food_delivery/Screens/Widgets/food_category.dart';
 import 'package:food_delivery/Screens/Widgets/home_top_info.dart';
+import 'package:food_delivery/Screens/Widgets/search_feild.dart';
 import 'package:food_delivery/constants.dart';
+
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -23,6 +26,34 @@ class _HomeScreenState extends State<HomeScreen> {
         children: <Widget>[
           HomeTopInfo(),
           FoodCategory(),
+          SearchField(),
+          SizedBox(height: 20.0,),
+          Row(
+            mainAxisAlignment:  MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Text("Frequently Bought Foods",
+               style: TextStyle(
+                fontSize: 18.0,
+                fontWeight: FontWeight.bold,
+                 ),
+              ),
+              GestureDetector(
+                onTap: (){},
+            
+              child:Text("View All",
+               style: TextStyle(
+                 fontSize: 18.0,
+                 fontWeight: FontWeight.bold,
+                 color: kPromaryColour 
+               ),
+              ),
+              )
+            ],
+          ),
+          SizedBox(height: 20.0,),
+          Container(
+            child: BoughtFoods(),
+          )
         ],
       ),
 
