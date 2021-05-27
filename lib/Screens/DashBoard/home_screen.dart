@@ -4,26 +4,28 @@ import 'package:food_delivery/Screens/DashBoard/account.dart';
 import 'package:food_delivery/Screens/DashBoard/cart.dart';
 import 'package:food_delivery/Screens/DashBoard/chat.dart';
 import 'package:food_delivery/Screens/DashBoard/feed.dart';
+import 'package:food_delivery/Screens/Widgets/food_category.dart';
+import 'package:food_delivery/Screens/Widgets/home_top_info.dart';
 import 'package:food_delivery/constants.dart';
 
-class HomeScreen extends StatelessWidget {
-//   @override
-//   _HomeScreenState createState() => _HomeScreenState();
-// }
+class HomeScreen extends StatefulWidget {
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
 
-// class _HomeScreenState extends State<HomeScreen> {
-//   int selectedIndex = 0;
-//   final screen = [
-//     HomeScreen(),
-//     FeedScreen(),
-//     CartScreen(),
-//     ChatScreen(),
-//     AccountScreen()
-//   ];
-
+class _HomeScreenState extends State<HomeScreen> {
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      body: ListView(
+        padding: EdgeInsets.only(top: 30.0, left: 20.0, right: 20.0),
+        children: <Widget>[
+          HomeTopInfo(),
+          FoodCategory(),
+        ],
+      ),
+
       backgroundColor: kPrimaryLightColor,
       bottomNavigationBar: CurvedNavigationBar(
         //index: selectedIndex,
@@ -58,11 +60,10 @@ class HomeScreen extends StatelessWidget {
         onTap: (index) {
           // setState(() {
           //   selectedIndex = index;
-         // }
+          // }
           //);
         },
         // animationCurve: Curves.easeInBack,
-        
       ),
       // body: screen[selectedIndex]
     );
