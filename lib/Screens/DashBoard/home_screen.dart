@@ -1,9 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:food_delivery/Screens/DashBoard/account.dart';
-import 'package:food_delivery/Screens/DashBoard/cart.dart';
-import 'package:food_delivery/Screens/DashBoard/chat.dart';
-import 'package:food_delivery/Screens/DashBoard/feed.dart';
 import 'package:food_delivery/Screens/Data/food_data.dart';
 import 'package:food_delivery/Screens/Widgets/bought_foods.dart';
 import 'package:food_delivery/Screens/Widgets/food_category.dart';
@@ -22,6 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: kPrimaryLightColor,
       body: ListView(
         padding: EdgeInsets.only(top: 30.0, left: 20.0, right: 20.0),
         children: <Widget>[
@@ -61,47 +57,8 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
-
-      backgroundColor: kPrimaryLightColor,
-      bottomNavigationBar: CurvedNavigationBar(
-        //index: selectedIndex,
-        items: [
-          Icon(
-            Icons.home,
-            size: 30,
-            color: kPromaryColour,
-          ),
-          Icon(
-            Icons.rss_feed,
-            size: 30,
-            color: kPromaryColour,
-          ),
-          Icon(
-            Icons.shopping_cart,
-            size: 30,
-            color: kPromaryColour,
-          ),
-          Icon(
-            Icons.message,
-            size: 30,
-            color: kPromaryColour,
-          ),
-          Icon(
-            Icons.person,
-            size: 30,
-            color: kPromaryColour,
-          )
-        ],
-        backgroundColor: kPrimaryLightColor,
-        onTap: (index) {
-          // setState(() {
-          //   selectedIndex = index;
-          // }
-          //);
-        },
-        // animationCurve: Curves.easeInBack,
-      ),
-      // body: screen[selectedIndex]
+     
+    
     );
   }
 
@@ -109,15 +66,13 @@ class _HomeScreenState extends State<HomeScreen> {
     return Container(
       margin: EdgeInsets.only(bottom: 20.0),
       child: BoughtFoods(
-        id: food.id,
-        name : food.name,
-        imagePath: food.imagePath,
-        category: food.category,
-        price: food.price,
-        discount: food.discount,
-        ratings: food.ratings
-      ),
-       
+          id: food.id,
+          name: food.name,
+          imagePath: food.imagePath,
+          category: food.category,
+          price: food.price,
+          discount: food.discount,
+          ratings: food.ratings),
     );
   }
 }
