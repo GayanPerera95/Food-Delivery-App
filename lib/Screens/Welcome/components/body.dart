@@ -3,7 +3,7 @@ import 'package:food_delivery/Screens/Login/login_screen.dart';
 import 'package:food_delivery/Screens/SignUp/signup_screen.dart';
 import 'package:food_delivery/constants.dart';
 
-class Body extends StatelessWidget {
+class Welcome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
